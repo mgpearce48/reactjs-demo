@@ -19,7 +19,7 @@ pipeline {
             }
         }
         stage('Deliver') {
-            agent any
+            agent { label linux}
             steps {
                 echo 'delivering...'
             }
