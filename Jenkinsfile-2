@@ -7,18 +7,19 @@ pipeline {
                     image 'node:lts-buster-slim'
                     args '-p 3000:3000'
                 }
-                reuseNode true
             }
             steps {
                 echo 'building...'
             }
         }
         stage('Test') {
+            agent any
             steps {
                 echo 'testing...'
             }
         }
         stage('Deliver') {
+            agent any
             steps {
                 echo 'delivering...'
             }
