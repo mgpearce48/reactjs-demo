@@ -4,16 +4,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building...'
+                echo 'docker ps -a'
             }
         }
         stage('Test') {
             steps {
                 echo 'testing...'
+                echo 'docker images'
             }
         }
         stage('Deliver') {
             steps {
                 echo 'delivering...'
+                echo 'docker --version'
             }
         }
     }
