@@ -1,31 +1,23 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'node:lts-buster-slim'
-                    args '-p 3000:3000'
-                }
-            }
             steps {
                 echo 'building...'
+                sh 'npm --version'
             }
         }
         stage('Test') {
-            agent any
             steps {
                 echo 'testing...'
             }
         }
         stage('Deliver') {
-            agent { label 'linux'}
             steps {
                 echo 'delivering...'
             }
         }
         // stage('Docker') {
-        //     agent any
         //     steps {
         //         echo 'dockering...'
         //         sh 'docker --version'
