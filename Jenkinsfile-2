@@ -7,31 +7,28 @@ pipeline {
                     image 'node:lts-buster-slim'
                     args '-p 3000:3000'
                 }
-                reuseNode true
             }
+            reuseNode true
             steps {
                 echo 'building...'
-                // sh 'docker ps -a'
             }
         }
         stage('Test') {
             steps {
                 echo 'testing...'
-                // sh 'docker images'
             }
         }
         stage('Deliver') {
             steps {
                 echo 'delivering...'
-                // sh 'docker --version'
             }
         }
-        stage('Docker') {
-            agent any
-            steps {
-                echo 'dockering...'
-                sh 'docker --version'
-            }
-        }
+        // stage('Docker') {
+        //     agent any
+        //     steps {
+        //         echo 'dockering...'
+        //         sh 'docker --version'
+        //     }
+        // }
     }
 }
